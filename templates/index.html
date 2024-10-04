@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BotPDF</title>
+</head>
+<body>
+    <h1>Filtrar PDF</h1>
+    <form method="post" enctype="multipart/form-data" >
+        <input type="file" name="file" accept=".pdf" required>
+        <button type="submit">Enviar</button>
+    </form>
+
+    {% if result %}
+        <h2>Resultado</h2>
+        <p>Quantidade de vezes que as palavras apareceram</p>
+        <ul>
+            {% for palavra, contagem in result.items() %}
+                <li>{{ palavra }}: {{ contagem }} </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
+
+
