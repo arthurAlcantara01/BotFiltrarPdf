@@ -3,24 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BotPDF</title>
+    <title>BotPdfPeso</title>
+    <style>
+        main{
+            max-width: 1000px;
+            background-color: rgb(213, 206, 206);
+            padding: 40px;
+            margin: auto;
+        }
+        h1, h2, p{
+            text-align: center;
+        }
+        ul{
+            max-width: 400px;
+            margin: auto;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        form input{
+            margin: auto;
+        }
+        form button{
+            width: 70px;
+            padding: 10px;
+            margin: auto;
+        }
+    </style>
 </head>
 <body>
-    <h1>Filtrar PDF</h1>
-    <form method="post" enctype="multipart/form-data" >
+    <main>
+        
+    <h1>Filtrar PDFS</h1>
+    <h2>Filtrar projetos que possam ter envolvimento com a área de informática</h2>
+
+    <form method="post" enctype="multipart/form-data">
         <input type="file" name="file" accept=".pdf" required>
         <button type="submit">Enviar</button>
     </form>
 
     {% if result %}
-        <h2>Resultado</h2>
-        <p>Quantidade de vezes que as palavras apareceram</p>
+    <h1>Resultado:</h1>
         <ul>
-            {% for palavra, contagem in result.items() %}
-                <li>{{ palavra }}: {{ contagem }} </li>
+            {% for palavra, cont in result.items(): %}
+            <li>{{palavra}} : {{cont}}</li>
             {% endfor %}
         </ul>
     {% endif %}
+    
+    </main>
 </body>
 </html>
 
